@@ -2,104 +2,72 @@
 
 import { useState } from "react";
 
-type OrderHeaderProps = {
-  orderType: "delivery" | "pickup";
-  onOrderTypeChange: (type: "delivery" | "pickup") => void;
-  timeOption: "asap" | "later";
-  onTimeOptionChange: (option: "asap" | "later") => void;
-};
+const deliveryOptions = [
+  { id: "delivery", label: "Lieferung" },
+  { id: "pickup", label: "Abholung" },
+];
 
-const orderTypeLabels: Record<OrderHeaderProps["orderType"], string> = {
-  delivery: "Lieferung",
-  pickup: "Abholung",
-};
+const timeOptions = [
+  { id: "asap", label: "Schnellstmöglich" },
+  { id: "later", label: "Später wählen" },
+];
 
-const timeOptionLabels: Record<OrderHeaderProps["timeOption"], string> = {
-  asap: "Schnellstmöglich",
-  later: "Später wählen",
-};
-
-export function OrderHeader({
-  orderType,
-  onOrderTypeChange,
-  timeOption,
-  onTimeOptionChange,
-}: OrderHeaderProps) {
-  const [announcementDismissed, setAnnouncementDismissed] = useState(false);
+export function OrderHeader() {
+  const [selectedDelivery, setSelectedDelivery] = useState("delivery");
+  const [selectedTime, setSelectedTime] = useState("asap");
 
   return (
-    <header className="space-y-6">
-      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium uppercase tracking-[0.3em] text-rose-500">Efem Experience</span>
-            </div>
-            <div>
-              <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-                Efem Grill &amp; Pizzeria am Theater
-              </h1>
-              <p className="mt-2 text-sm text-slate-600 md:text-base">
-                Theaterplatz 12, 48529 Nordhorn · Täglich 11:30 – 22:30 Uhr
-              </p>
-            </div>
+    <section className="bg-white shadow-sm rounded-3xl p-6 md:p-8">
+      <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <div className="space-y-3">
+          <div className="space-y-1">
+            <p className="text-sm uppercase tracking-[0.25em] text-slate-400">
+              Willkommen bei
+            </p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-slate-900">
+              Efem Grill &amp; Pizzeria am Theater
+            </h1>
           </div>
-          {!announcementDismissed && (
-            <div className="flex flex-col items-start justify-between gap-3 rounded-2xl bg-slate-50 p-4 text-sm text-slate-600 shadow-inner md:max-w-xs">
-              <p>Dies ist eine Bestellvorschau, keine echte Online-Bestellung.</p>
-              <button
-                type="button"
-                onClick={() => setAnnouncementDismissed(true)}
-                className="text-xs font-semibold text-rose-500 transition hover:text-rose-600"
-              >
-                Verstanden
-              </button>
-            </div>
-          )}
+          <div className="text-sm text-slate-600 space-y-1">
+            <p>Theaterstraße 12 · 52062 Aachen</p>
+            <p>Öffnungszeiten heute: 11:30 – 22:30 Uhr</p>
+          </div>
         </div>
-      </div>
-
-      <div className="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-wrap items-center gap-3">
-          {(["delivery", "pickup"] as const).map((type) => {
-            const isActive = orderType === type;
-            return (
+        <div className="flex flex-col gap-4 md:min-w-[280px]">
+          <div className="bg-slate-100 rounded-2xl p-2 flex gap-2">
+            {deliveryOptions.map((option) => (
               <button
-                key={type}
+                key={option.id}
                 type="button"
-                onClick={() => onOrderTypeChange(type)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
-                  isActive
-                    ? "bg-rose-500 text-white shadow"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                onClick={() => setSelectedDelivery(option.id)}
+                className={`flex-1 rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                  selectedDelivery === option.id
+                    ? "bg-white shadow-sm text-slate-900"
+                    : "text-slate-500 hover:text-slate-900"
                 }`}
               >
-                {orderTypeLabels[type]}
+                {option.label}
               </button>
-            );
-          })}
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3">
-          {(["asap", "later"] as const).map((option) => {
-            const isActive = timeOption === option;
-            return (
+            ))}
+          </div>
+          <div className="bg-slate-100 rounded-2xl p-2 flex gap-2">
+            {timeOptions.map((option) => (
               <button
-                key={option}
+                key={option.id}
                 type="button"
-                onClick={() => onTimeOptionChange(option)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
-                  isActive
-                    ? "bg-slate-900 text-white shadow"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                onClick={() => setSelectedTime(option.id)}
+                className={`flex-1 rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                  selectedTime === option.id
+                    ? "bg-white shadow-sm text-slate-900"
+                    : "text-slate-500 hover:text-slate-900"
                 }`}
               >
-                {timeOptionLabels[option]}
+                {option.label}
               </button>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
