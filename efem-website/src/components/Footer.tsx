@@ -15,13 +15,13 @@ const Footer = () => {
         </div>
         <div className="flex items-center gap-6 text-sm">
           <Link
-            href="#"
+            href="/impressum"
             className="transition hover:text-rose-500"
           >
             Impressum
           </Link>
           <Link
-            href="#"
+            href="/datenschutz"
             className="transition hover:text-rose-500"
           >
             Datenschutz
