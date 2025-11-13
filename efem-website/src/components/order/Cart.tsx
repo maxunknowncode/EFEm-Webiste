@@ -8,12 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { OrderItem } from "./data";
-
-export type CartItem = {
-  item: OrderItem;
-  quantity: number;
-};
+import type { CartItem, OrderItem } from "./data";
 
 type CartContextValue = {
   cartItems: CartItem[];

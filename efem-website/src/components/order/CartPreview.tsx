@@ -13,7 +13,10 @@ type CartPreviewProps = {
 
 export function CartPreview({ items, onIncrement, onDecrement, onClear }: CartPreviewProps) {
   const totals = useMemo(() => {
-    const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const subtotal = items.reduce(
+      (acc, cartItem) => acc + cartItem.item.price * cartItem.quantity,
+      0
+    );
     const serviceFee = subtotal > 0 ? Math.min(2, subtotal * 0.05) : 0;
     const total = subtotal + serviceFee;
 
@@ -43,27 +46,29 @@ export function CartPreview({ items, onIncrement, onDecrement, onClear }: CartPr
         {items.length === 0 ? (
           <p className="text-sm text-slate-500">Füge Gerichte hinzu, um deine Bestellung zu sehen.</p>
         ) : (
-          items.map((item) => (
-            <div key={item.id} className="rounded-2xl bg-slate-50 p-4">
+          items.map((cartItem) => (
+            <div key={cartItem.item.id} className="rounded-2xl bg-slate-50 p-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">{item.name}</p>
+                  <p className="text-sm font-semibold text-slate-900">{cartItem.item.name}</p>
                   <p className="text-xs text-slate-500">
-                    {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(item.price)}
+                    {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(
+                      cartItem.item.price
+                    )}
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
-                    onClick={() => onDecrement(item.id)}
+                    onClick={() => onDecrement(cartItem.item.id)}
                     className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200 transition hover:bg-slate-100"
                   >
                     −
                   </button>
-                  <span className="text-sm font-semibold text-slate-900">{item.quantity}</span>
+                  <span className="text-sm font-semibold text-slate-900">{cartItem.quantity}</span>
                   <button
                     type="button"
-                    onClick={() => onIncrement(item.id)}
+                    onClick={() => onIncrement(cartItem.item.id)}
                     className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200 transition hover:bg-slate-100"
                   >
                     +

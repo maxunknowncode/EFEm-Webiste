@@ -19,6 +19,11 @@ export type MenuData = {
   items: OrderItem[];
 };
 
+export type CartItem = {
+  item: OrderItem;
+  quantity: number;
+};
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 1 },
