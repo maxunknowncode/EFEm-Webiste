@@ -9,10 +9,10 @@ const Hero = () => {
             Pizzeria &amp; Grill
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-            Pizzeria EFEm – Pizzeria &amp; Grill in Nordhorn
+            Pizzeria EFEm – Pizzeria &amp; Grill
           </h1>
           <p className="max-w-xl text-lg text-slate-600">
-            Frische Pizza, saftiger Döner und mehr – einfach online bestellen und in wenigen Minuten genießen. Modern, unkompliziert und immer lecker.
+            Frische Pizza, saftiger Döner und mehr – einfach online bestellen.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
