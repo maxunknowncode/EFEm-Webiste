@@ -173,6 +173,76 @@ const kebapItems: OrderItem[] = [
   },
 ];
 
+const fladenbrotrollenItems: OrderItem[] = [
+  {
+    id: "20",
+    categoryId: "fladenbrotrollen",
+    name: "Sucuk Rolle",
+    description:
+      "Türkische Knoblauchwurst im Pizzateig gerollt, dazu Tomaten, Weiß- und Rotkraut, Zwiebeln, Eisbergsalat und Remoulade, mit Käse überbacken.",
+    price: 6.5,
+  },
+  {
+    id: "21",
+    categoryId: "fladenbrotrollen",
+    name: "Thunfisch Rolle",
+    description:
+      "Thunfisch im Pizzateig gerollt, gefüllt mit Tomaten, Weiß- und Rotkraut, Zwiebeln, Eisbergsalat und Remoulade, mit Käse überbacken.",
+    price: 6.5,
+  },
+  {
+    id: "22",
+    categoryId: "fladenbrotrollen",
+    name: "Schinken Rolle",
+    description:
+      "Schinken im Pizzateig gerollt, zusammen mit Tomaten, Weiß- und Rotkraut, Zwiebeln, Eisbergsalat und Remoulade, mit Käse überbacken.",
+    price: 6.5,
+  },
+  {
+    id: "23",
+    categoryId: "fladenbrotrollen",
+    name: "Salami Rolle",
+    description:
+      "Salami im Pizzateig gerollt, mit Tomaten, Weiß- und Rotkraut, Zwiebeln, Eisbergsalat und Remoulade, mit Käse überbacken.",
+    price: 6.5,
+  },
+  {
+    id: "24",
+    categoryId: "fladenbrotrollen",
+    name: "Vegetarische Rolle",
+    description:
+      "Vegetarische Rolle im Pizzateig mit frischer Paprika, Tomaten, Weiß- und Rotkraut, Zwiebeln, Eisbergsalat und Remoulade, mit Käse überbacken.",
+    price: 6.5,
+    vegetarian: true,
+  },
+  {
+    id: "25",
+    categoryId: "fladenbrotrollen",
+    name: "Falafel Rolle",
+    description:
+      "Falafel im Pizzateig gerollt, mit Tomaten, sauren Gurken, Eisbergsalat und Knoblauchsoße.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "26",
+    categoryId: "fladenbrotrollen",
+    name: "Pomm-Rolle",
+    description:
+      "Rolle im Pizzateig mit Kebapfleisch, Pommes frites, Zwiebeln, Mayonnaise und Ketchup.",
+    price: 7.0,
+  },
+  {
+    id: "27",
+    categoryId: "fladenbrotrollen",
+    name: "Sucuk Chili-Cheese-Rolle",
+    description:
+      "Knoblauchwurst im Pizzateig gerollt, mit Tomaten, Eisbergsalat, Zwiebeln, Chili-Cheese-Sauce und Jalapenos, mit Käse überbacken.",
+    price: 7.5,
+    spicy: true,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -192,14 +262,8 @@ export const menuData: MenuData = {
     { id: "getraenke", name: "Getränke", order: 150 },
   ],
   items: [
-    {
-      id: "sucuk-rollo",
-      name: "Sucuk Rollo",
-      description: "Knusprig gerolltes Fladenbrot mit würziger Sucuk und Käse.",
-      price: 8.5,
-      categoryId: "fladenbrotrollen",
-      spicy: true,
-    },
+    ...kebapItems,
+    ...fladenbrotrollenItems,
     {
       id: "margherita",
       name: "Pizza Margherita",
@@ -230,6 +294,5 @@ export const menuData: MenuData = {
       price: 2.8,
       categoryId: "getraenke",
     },
-    ...kebapItems,
   ],
 };
