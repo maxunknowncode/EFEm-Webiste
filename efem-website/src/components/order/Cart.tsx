@@ -184,12 +184,14 @@ export function Cart() {
           <span>Gesamt</span>
           <span>{total.toFixed(2)} €</span>
         </div>
-        <button
-          type="button"
-          className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-full px-4 py-3 font-medium transition-transform duration-200 hover:-translate-y-0.5"
-        >
-          Zur Kasse
-        </button>
+        <div className="flex justify-center">
+          <button
+            type="button"
+            className="w-auto px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-semibold mx-auto block"
+          >
+            Zur Kasse
+          </button>
+        </div>
       </div>
     </div>
   );

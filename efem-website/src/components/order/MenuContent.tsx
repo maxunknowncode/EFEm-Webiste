@@ -37,7 +37,7 @@ export function MenuContent({ activeCategoryId }: MenuContentProps) {
         {items.map((item) => (
           <article
             key={item.id}
-            className="bg-white shadow-sm rounded-2xl p-5 flex flex-col gap-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-md"
+            className="bg-white rounded-2xl shadow-sm p-4 flex flex-col gap-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-md"
           >
             <div className="space-y-2">
               <div className="flex items-start justify-between gap-3">
@@ -64,11 +64,11 @@ export function MenuContent({ activeCategoryId }: MenuContentProps) {
                 )}
               </div>
             </div>
-            <div className="mt-auto">
+            <div className="mt-auto flex justify-center">
               <button
                 type="button"
                 onClick={() => addItem(item)}
-                className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-full px-4 py-2 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5"
+                className="w-auto px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-semibold mx-auto block"
               >
                 In den Warenkorb
               </button>
