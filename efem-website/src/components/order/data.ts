@@ -626,6 +626,90 @@ const pizzaItems: OrderItem[] = [
   },
 ];
 
+const vegetarischePizzaItems: OrderItem[] = [
+  {
+    id: "83",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Margherita",
+    description: "Klassische Pizza mit Tomatensauce, Käse und Oregano.",
+    price: 6.5,
+    vegetarian: true,
+  },
+  {
+    id: "84",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Funghi",
+    description: "Tomatensauce mit frischen Champignons, Käse und Oregano.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "85",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Paprika",
+    description: "Tomatensauce, bunte Paprika, Zwiebeln, Käse und Oregano.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "86",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Ananas",
+    description: "Pizza mit Tomatensauce, Ananasstücken, Käse und Oregano.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "87",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Mozzarella",
+    description: "Tomatensauce, Mozzarella, frische Tomaten, Käse und Oregano.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "88",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Popeye",
+    description: "Tomatensauce mit Spinat, Spiegelei, Käse und Oregano.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "89",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Peperoni",
+    description: "Tomatensauce, Peperoni, Paprika, Zwiebeln, Käse und Oregano.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "90",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Brokkoli",
+    description: "Tomatensauce mit Brokkoli, Sauce Hollandaise, Käse und Oregano.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "91",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Italia",
+    description: "Tomatensauce, Hirtenkäse, Paprika, Zwiebeln, Käse und Oregano.",
+    price: 7.5,
+    vegetarian: true,
+  },
+  {
+    id: "92",
+    categoryId: "vegetarische-pizza",
+    name: "Pizza Vegetaria",
+    description:
+      "Tomatensauce mit Paprika, Tomaten, Spargel, Mais, Zwiebeln, Käse und Oregano.",
+    price: 8.0,
+    vegetarian: true,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -650,6 +734,7 @@ export const menuData: MenuData = {
     ...pizzaSchneckenItems,
     ...pommBoxItems,
     ...pizzaItems,
+    ...vegetarischePizzaItems,
     {
       id: "salat-griechisch",
       name: "Griechischer Salat",
