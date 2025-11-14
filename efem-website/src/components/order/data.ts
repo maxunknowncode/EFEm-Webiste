@@ -243,6 +243,17 @@ const fladenbrotrollenItems: OrderItem[] = [
   },
 ];
 
+const pizzaSchneckenItems: OrderItem[] = [
+  {
+    id: "30",
+    categoryId: "pizza-schnecken",
+    name: "30. (8 Stück) gefüllte Pizzaschnecken",
+    description:
+      "Acht gefüllte Pizzaschnecken mit kleinem Salat und einem Dip nach Wahl.",
+    price: 9.0,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -264,6 +275,7 @@ export const menuData: MenuData = {
   items: [
     ...kebapItems,
     ...fladenbrotrollenItems,
+    ...pizzaSchneckenItems,
     {
       id: "margherita",
       name: "Pizza Margherita",
