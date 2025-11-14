@@ -129,7 +129,7 @@ const MenuPage = () => {
             Speisekarte
           </h1>
           <p className="max-w-3xl text-lg text-slate-600">
-            Hier findest du unsere beliebtesten Pizzen, Döner-Variationen und Snacks. Wähle deine Favoriten und füge sie mit einem Klick deiner Bestellung hinzu.
+            Hier findest du unsere beliebtesten Pizzen, Döner-Variationen und Snacks. Lehne dich zurück und entdecke alle Gerichte in Ruhe.
           </p>
         </div>
         <div className="mt-10">
@@ -147,27 +147,19 @@ const MenuPage = () => {
               <div>
                 <h2 className="text-2xl font-semibold text-slate-900">{category.title}</h2>
               </div>
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-4 md:grid-cols-2">
                 {category.items.map((item) => (
                   <article
                     key={item.name}
-                    className="flex h-full flex-col justify-between gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg"
+                    className="rounded-2xl border border-slate-100 bg-white shadow-sm px-5 py-4 flex flex-col gap-2"
                   >
-                    <div className="space-y-2">
-                      <div className="flex items-baseline justify-between gap-4">
-                        <h3 className="text-lg font-semibold text-slate-900">{item.name}</h3>
-                        <span className="text-sm font-semibold text-rose-500">{item.price}</span>
-                      </div>
-                      <p className="text-sm text-slate-600">{item.description}</p>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="text-base font-semibold text-slate-900">{item.name}</h3>
+                      <span className="text-sm font-semibold text-rose-500 whitespace-nowrap">
+                        {item.price}
+                      </span>
                     </div>
-                    <div className="flex justify-center">
-                      <button
-                        type="button"
-                        className="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-rose-300 hover:text-rose-500"
-                      >
-                        Zum Bestellen hinzufügen
-                      </button>
-                    </div>
+                    <p className="text-sm text-slate-600">{item.description}</p>
                   </article>
                 ))}
               </div>
