@@ -99,7 +99,7 @@ export function CartPreview({ items, onIncrement, onDecrement, onClear }: CartPr
         <div className="flex justify-center">
           <button
             type="button"
-            className="w-auto px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-semibold mx-auto block"
+            className="inline-flex items-center justify-center rounded-full bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-600 hover:shadow-md"
           >
             Zur Kasse (Vorschau)
           </button>

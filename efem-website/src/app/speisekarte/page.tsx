@@ -1,3 +1,5 @@
+import { MenuCategoryTabs } from "@/components/menu/MenuCategoryTabs";
+
 type MenuItem = {
   name: string;
   description: string;
@@ -5,12 +7,14 @@ type MenuItem = {
 };
 
 type MenuCategory = {
+  id: string;
   title: string;
   items: MenuItem[];
 };
 
 const menuCategories: MenuCategory[] = [
   {
+    id: "pizza",
     title: "Pizza",
     items: [
       {
@@ -31,6 +35,7 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
+    id: "doener",
     title: "Döner",
     items: [
       {
@@ -51,6 +56,28 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
+    id: "rollen",
+    title: "Rollen",
+    items: [
+      {
+        name: "Chicken Roll",
+        description: "Gegrilltes Hähnchen, frischer Salat, Tomaten, Joghurtsauce",
+        price: "7,20 €",
+      },
+      {
+        name: "Falafel Roll",
+        description: "Hausgemachte Falafel, Granatapfel, Tahini, Kräuter",
+        price: "6,80 €",
+      },
+      {
+        name: "Sucuk Roll",
+        description: "Würzige Sucuk, Paprika, Gurke, Knoblauch-Joghurt",
+        price: "7,40 €",
+      },
+    ],
+  },
+  {
+    id: "snacks",
     title: "Snacks & Beilagen",
     items: [
       {
@@ -71,6 +98,7 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
+    id: "getraenke",
     title: "Getränke",
     items: [
       {
@@ -104,9 +132,18 @@ const MenuPage = () => {
             Hier findest du unsere beliebtesten Pizzen, Döner-Variationen und Snacks. Wähle deine Favoriten und füge sie mit einem Klick deiner Bestellung hinzu.
           </p>
         </div>
+        <div className="mt-10">
+          <MenuCategoryTabs
+            tabs={menuCategories.map((category) => ({
+              id: category.id,
+              label: category.title,
+            }))}
+            initialActiveId={menuCategories[0]?.id}
+          />
+        </div>
         <div className="mt-12 space-y-12">
           {menuCategories.map((category) => (
-            <section key={category.title} className="space-y-6">
+            <section key={category.id} id={category.id} className="space-y-6">
               <div>
                 <h2 className="text-2xl font-semibold text-slate-900">{category.title}</h2>
               </div>
@@ -123,10 +160,10 @@ const MenuPage = () => {
                       </div>
                       <p className="text-sm text-slate-600">{item.description}</p>
                     </div>
-                    <div>
+                    <div className="flex justify-center">
                       <button
                         type="button"
-                        className="w-full rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-rose-400 hover:text-rose-500"
+                        className="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-rose-300 hover:text-rose-500"
                       >
                         Zum Bestellen hinzufügen
                       </button>
