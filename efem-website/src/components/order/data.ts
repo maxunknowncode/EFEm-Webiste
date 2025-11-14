@@ -254,6 +254,25 @@ const pizzaSchneckenItems: OrderItem[] = [
   },
 ];
 
+const pommBoxItems: OrderItem[] = [
+  {
+    id: "35",
+    categoryId: "pomm-box",
+    name: "Pomm-Box",
+    description:
+      "Pommes frites mit Kebap- oder Hähnchenfleisch, dazu Tzatziki, Krautsalat und Zwiebeln.",
+    price: 6.0,
+  },
+  {
+    id: "36",
+    categoryId: "pomm-box",
+    name: "Kapsalon Kebap",
+    description:
+      "Pommes frites mit Kebapfleisch, mit Cheddar und Goudakäse überbacken, dazu Eisbergsalat und Knoblauchsoße.",
+    price: 9.0,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -276,6 +295,7 @@ export const menuData: MenuData = {
     ...kebapItems,
     ...fladenbrotrollenItems,
     ...pizzaSchneckenItems,
+    ...pommBoxItems,
     {
       id: "margherita",
       name: "Pizza Margherita",
@@ -283,13 +303,6 @@ export const menuData: MenuData = {
       price: 8.9,
       categoryId: "pizza",
       vegetarian: true,
-    },
-    {
-      id: "pommbox-classic",
-      name: "Pomm-Box Classic",
-      description: "Knusprige Pommes, Kalbfleischstreifen und hausgemachte Joghurtsauce.",
-      price: 9.5,
-      categoryId: "pomm-box",
     },
     {
       id: "salat-griechisch",
