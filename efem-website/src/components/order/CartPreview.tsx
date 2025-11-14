@@ -96,12 +96,14 @@ export function CartPreview({ items, onIncrement, onDecrement, onClear }: CartPr
       </div>
 
       <div className="mt-6 space-y-3">
-        <button
-          type="button"
-          className="w-full rounded-full bg-rose-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-600 hover:shadow-md"
-        >
-          Zur Kasse (Vorschau)
-        </button>
+        <div className="flex justify-center">
+          <button
+            type="button"
+            className="w-auto px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-semibold mx-auto block"
+          >
+            Zur Kasse (Vorschau)
+          </button>
+        </div>
         <p className="text-center text-xs text-slate-500">Nur UI-Vorschau, keine echte Bestellung.</p>
       </div>
     </aside>
