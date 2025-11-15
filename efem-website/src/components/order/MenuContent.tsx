@@ -2,16 +2,14 @@
 
 import { useMemo } from "react";
 import { MenuItemCard } from "@/components/menu/MenuItemCard";
-import { menuData } from "./data";
-import { useCart } from "./Cart";
+import { menuData, type OrderItem } from "./data";
 
 type MenuContentProps = {
   activeCategoryId: string;
+  onAddItem: (item: OrderItem) => void;
 };
 
-export function MenuContent({ activeCategoryId }: MenuContentProps) {
-  const { addItem } = useCart();
-
+export function MenuContent({ activeCategoryId, onAddItem }: MenuContentProps) {
   const items = useMemo(
     () =>
       menuData.items.filter((item) => item.categoryId === activeCategoryId),
@@ -40,7 +38,7 @@ export function MenuContent({ activeCategoryId }: MenuContentProps) {
             key={item.id}
             item={item}
             showAction
-            onAction={() => addItem(item)}
+            onAction={() => onAddItem(item)}
           />
         ))}
         {items.length === 0 && (

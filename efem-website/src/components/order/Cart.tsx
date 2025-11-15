@@ -141,7 +141,11 @@ export function useCart() {
   return context;
 }
 
-export function Cart() {
+type CartProps = {
+  onCheckout?: () => void;
+};
+
+export function Cart({ onCheckout }: CartProps) {
   const {
     cartItems,
     increaseQuantity,
@@ -226,7 +230,14 @@ export function Cart() {
         <div className="flex justify-center">
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-600 hover:shadow-md"
+            onClick={() => {
+              if (cartItems.length === 0) {
+                return;
+              }
+              onCheckout?.();
+            }}
+            disabled={cartItems.length === 0}
+            className="inline-flex items-center justify-center rounded-full bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-600 hover:shadow-md disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500"
           >
             Zur Kasse
           </button>
