@@ -710,6 +710,84 @@ const vegetarischePizzaItems: OrderItem[] = [
   },
 ];
 
+const taschenpizzaItems: OrderItem[] = [
+  {
+    id: "100",
+    categoryId: "taschenpizza",
+    name: "Kebap Tasche",
+    description:
+      "Taschenpizza mit Tomatensauce, Kebap, Tzatziki, Käse und Oregano.",
+    price: 9.0,
+  },
+  {
+    id: "101",
+    categoryId: "taschenpizza",
+    name: "Hähnchen Tasche",
+    description:
+      "Taschenpizza mit Tomatensauce, Hähnchenfleisch, Tzatziki, Käse und Oregano.",
+    price: 9.0,
+  },
+  {
+    id: "102",
+    categoryId: "taschenpizza",
+    name: "Türkische Tasche",
+    description:
+      "Taschenpizza mit Tomatensauce, Kebap, Knoblauchwurst, Hirtenkäse, Zwiebeln, Tzatziki, Käse und Oregano.",
+    price: 10.0,
+  },
+  {
+    id: "103",
+    categoryId: "taschenpizza",
+    name: "Calzone",
+    description:
+      "Gefüllte Calzone mit Tomatensauce, Salami, Schinken, Thunfisch, Spargel, frischen Pilzen, Käse und Oregano.",
+    price: 9.0,
+  },
+  {
+    id: "104",
+    categoryId: "taschenpizza",
+    name: "Mix Tasche",
+    description:
+      "Taschenpizza mit Tomatensauce, Kebap, Hähnchenfleisch, Tzatziki, Käse und Oregano.",
+    price: 9.5,
+  },
+  {
+    id: "105",
+    categoryId: "taschenpizza",
+    name: "Tayfun Tasche",
+    description:
+      "Taschenpizza mit Tomatensauce, Kebap, frischen Tomaten, Zwiebeln, Jalapenos, Sauce Hollandaise, Käse und Oregano.",
+    price: 10.0,
+    spicy: true,
+  },
+  {
+    id: "106",
+    categoryId: "taschenpizza",
+    name: "Chili Cheese Kebap Tasche",
+    description:
+      "Scharfe Taschenpizza mit Tomatensauce, Kebap, Chili-Cheese-Sauce, Jalapenos, Käse und Oregano.",
+    price: 10.0,
+    spicy: true,
+  },
+  {
+    id: "107",
+    categoryId: "taschenpizza",
+    name: "Chili Cheese Hähnchen Tasche",
+    description:
+      "Scharfe Taschenpizza mit Tomatensauce, Hähnchenfleisch, Chili-Cheese-Sauce, Jalapenos, Käse und Oregano.",
+    price: 10.0,
+    spicy: true,
+  },
+  {
+    id: "99",
+    categoryId: "taschenpizza",
+    name: "Thunfisch Tasche",
+    description:
+      "Taschenpizza mit Tomatensauce, Thunfisch, Zwiebeln, Käse und Oregano.",
+    price: 8.5,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -735,6 +813,7 @@ export const menuData: MenuData = {
     ...pommBoxItems,
     ...pizzaItems,
     ...vegetarischePizzaItems,
+    ...taschenpizzaItems,
     {
       id: "salat-griechisch",
       name: "Griechischer Salat",
