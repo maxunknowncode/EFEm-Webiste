@@ -859,6 +859,42 @@ const fingerFoodMenueItems: OrderItem[] = [
   },
 ];
 
+const auflaufItems: OrderItem[] = [
+  {
+    id: "67",
+    categoryId: "auflauf",
+    name: "Brazil-Auflauf",
+    description:
+      "Kartoffel-Gratin mit Hähnchenfleisch, Brokkoli und Sauce Hollandaise, mit Käse überbacken.",
+    price: 10.0,
+  },
+  {
+    id: "68",
+    categoryId: "auflauf",
+    name: "Gemüse-Auflauf",
+    description:
+      "Kartoffel-Gratin mit Paprika, Brokkoli und frischen Pilzen, mit Käse überbacken.",
+    price: 10.0,
+    vegetarian: true,
+  },
+  {
+    id: "69",
+    categoryId: "auflauf",
+    name: "Kebap-Auflauf",
+    description:
+      "Kartoffel-Gratin mit Kebapfleisch und frischen Pilzen in Rahmsauce, mit Käse überbacken.",
+    price: 10.0,
+  },
+  {
+    id: "69a",
+    categoryId: "auflauf",
+    name: "Emlichheim-Auflauf",
+    description:
+      "Kartoffel-Gratin mit Hähnchenbruststreifen, Mais, Brokkoli und Sauce Hollandaise, mit Käse überbacken.",
+    price: 10.0,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -886,6 +922,7 @@ export const menuData: MenuData = {
     ...vegetarischePizzaItems,
     ...taschenpizzaItems,
     ...fingerFoodMenueItems,
+    ...auflaufItems,
     {
       id: "salat-griechisch",
       name: "Griechischer Salat",
