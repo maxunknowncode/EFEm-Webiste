@@ -1,32 +1,47 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { locations, type LocationId } from "./locations";
+import type { FulfillmentType, TimeMode } from "./types";
 
 const fulfillmentOptions = [
-  { id: "delivery", label: "Lieferung" },
-  { id: "pickup", label: "Abholung" },
-] as const;
-
-type FulfillmentMode = (typeof fulfillmentOptions)[number]["id"];
+  { id: "delivery" as const, label: "Lieferung" },
+  { id: "pickup" as const, label: "Abholung" },
+];
 
 const timeOptions = [
-  { id: "asap", label: "Schnellstmöglich" },
-  { id: "later", label: "Später wählen" },
-] as const;
+  { id: "asap" as const, label: "Schnellstmöglich" },
+  { id: "later" as const, label: "Später wählen" },
+];
 
-type TimeMode = (typeof timeOptions)[number]["id"];
+type OrderHeaderProps = {
+  selectedLocation: LocationId;
+  onSelectLocation: (location: LocationId) => void;
+  fulfillmentType: FulfillmentType;
+  onSelectFulfillment: (type: Exclude<FulfillmentType, null>) => void;
+  fulfillmentError?: string;
+  timeMode: TimeMode;
+  onTimeModeChange: (mode: TimeMode) => void;
+  scheduledDate: string;
+  onScheduledDateChange: (value: string) => void;
+  scheduledTime: string;
+  onScheduledTimeChange: (value: string) => void;
+};
 
-export function OrderHeader() {
-  const [selectedLocation, setSelectedLocation] = useState<LocationId>("nordhorn");
-  const [fulfillmentMode, setFulfillmentMode] = useState<FulfillmentMode>(
-    "delivery"
-  );
-  const [timeMode, setTimeMode] = useState<TimeMode>("asap");
-  const [scheduledDate, setScheduledDate] = useState("");
-  const [scheduledTime, setScheduledTime] = useState("");
-
+export function OrderHeader({
+  selectedLocation,
+  onSelectLocation,
+  fulfillmentType,
+  onSelectFulfillment,
+  fulfillmentError,
+  timeMode,
+  onTimeModeChange,
+  scheduledDate,
+  onScheduledDateChange,
+  scheduledTime,
+  onScheduledTimeChange,
+}: OrderHeaderProps) {
   const activeLocation = useMemo(
     () => locations.find((location) => location.id === selectedLocation),
     [selectedLocation]
@@ -52,7 +67,7 @@ export function OrderHeader() {
                 <button
                   key={location.id}
                   type="button"
-                  onClick={() => setSelectedLocation(location.id)}
+                  onClick={() => onSelectLocation(location.id)}
                   className={pillClasses(location.id === selectedLocation)}
                 >
                   {location.name.replace(/^EFEm\s+/i, "")}
@@ -91,18 +106,21 @@ export function OrderHeader() {
                 <button
                   key={option.id}
                   type="button"
-                  onClick={() => setFulfillmentMode(option.id)}
-                  className={pillClasses(fulfillmentMode === option.id)}
+                  onClick={() => onSelectFulfillment(option.id)}
+                  className={pillClasses(fulfillmentType === option.id)}
                 >
                   {option.label}
                 </button>
               ))}
             </div>
             <p className="text-xs text-slate-500">
-              {fulfillmentMode === "delivery"
-                ? "Wir liefern im Umkreis des gewählten Standorts."
-                : "Bestellung zur Abholung im gewählten Standort."}
+              {fulfillmentType === "pickup"
+                ? "Abholung (mindestens ca. 20 Minuten)."
+                : "Lieferung (mindestens ca. 45 Minuten)."}
             </p>
+            {fulfillmentError ? (
+              <p className="text-xs text-rose-500">{fulfillmentError}</p>
+            ) : null}
           </div>
           <div className="space-y-3">
             <p className="text-sm font-medium text-slate-500">Zeitwahl</p>
@@ -111,7 +129,7 @@ export function OrderHeader() {
                 <button
                   key={option.id}
                   type="button"
-                  onClick={() => setTimeMode(option.id)}
+                  onClick={() => onTimeModeChange(option.id)}
                   className={pillClasses(timeMode === option.id)}
                 >
                   {option.label}
@@ -127,7 +145,7 @@ export function OrderHeader() {
                   <input
                     type="date"
                     value={scheduledDate}
-                    onChange={(event) => setScheduledDate(event.target.value)}
+                    onChange={(event) => onScheduledDateChange(event.target.value)}
                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
@@ -138,7 +156,7 @@ export function OrderHeader() {
                   <input
                     type="time"
                     value={scheduledTime}
-                    onChange={(event) => setScheduledTime(event.target.value)}
+                    onChange={(event) => onScheduledTimeChange(event.target.value)}
                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
