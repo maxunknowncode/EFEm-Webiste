@@ -859,6 +859,71 @@ const fingerFoodMenueItems: OrderItem[] = [
   },
 ];
 
+const fingerfoodItems: OrderItem[] = [
+  {
+    id: "130",
+    categoryId: "fingerfood",
+    name: "Mozzarella Sticks (6 Stück)",
+    description: "Knusprig panierte Mozzarella Sticks mit Dip nach Wahl.",
+    price: 6.0,
+    vegetarian: true,
+  },
+  {
+    id: "131",
+    categoryId: "fingerfood",
+    name: "Chili Cheese Nuggets (6 Stück)",
+    description: "Scharfe Käse-Nuggets mit cremiger Füllung und Dip.",
+    price: 6.0,
+    vegetarian: true,
+    spicy: true,
+  },
+  {
+    id: "132",
+    categoryId: "fingerfood",
+    name: "Hähnchenbrust-Streifen",
+    description: "Knusprige Hähnchenstreifen mit Dip nach Wahl.",
+    price: 6.5,
+  },
+  {
+    id: "133",
+    categoryId: "fingerfood",
+    name: "Onion Rings",
+    description: "Goldbraun frittierte Zwiebelringe mit Dip.",
+    price: 5.5,
+    vegetarian: true,
+  },
+  {
+    id: "134",
+    categoryId: "fingerfood",
+    name: "Falafel (6 Stück)",
+    description: "Hausgemachte Falafelbällchen mit Dip.",
+    price: 5.5,
+    vegetarian: true,
+  },
+  {
+    id: "135",
+    categoryId: "fingerfood",
+    name: "Finger Mix",
+    description: "Variation aus Fingerfood-Snacks mit zwei Dips.",
+    price: 9.0,
+  },
+  {
+    id: "136",
+    categoryId: "fingerfood",
+    name: "Chicken Nuggets (6 Stück)",
+    description: "Sechs Chicken Nuggets mit Dip.",
+    price: 5.5,
+  },
+  {
+    id: "137",
+    categoryId: "fingerfood",
+    name: "Buffalo Wings (6 Stück)",
+    description: "Marinierte Hähnchenflügel mit pikanter Glasur.",
+    price: 7.0,
+    spicy: true,
+  },
+];
+
 const auflaufItems: OrderItem[] = [
   {
     id: "67",
@@ -1086,6 +1151,16 @@ const dipsItems: OrderItem[] = [
   },
 ];
 
+const getraenkeItems: OrderItem[] = [
+  {
+    id: "cola-05",
+    name: "Coca-Cola 0,5l",
+    description: "Gekühltes Erfrischungsgetränk.",
+    price: 2.8,
+    categoryId: "getraenke",
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -1119,12 +1194,6 @@ export const menuData: MenuData = {
     ...salatItems,
     ...snacksItems,
     ...dipsItems,
-    {
-      id: "cola-05",
-      name: "Coca-Cola 0,5l",
-      description: "Gekühltes Erfrischungsgetränk.",
-      price: 2.8,
-      categoryId: "getraenke",
-    },
+    ...getraenkeItems,
   ],
 };
