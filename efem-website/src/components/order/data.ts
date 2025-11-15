@@ -924,6 +924,66 @@ const fingerfoodItems: OrderItem[] = [
   },
 ];
 
+const pastaItems: OrderItem[] = [
+  {
+    id: "130",
+    categoryId: "pasta",
+    name: "Spaghetti",
+    description:
+      "Spaghetti mit Rinder-Bolognese-Sauce, serviert mit Pizzabrötchen.",
+    price: 9.0,
+  },
+  {
+    id: "131",
+    categoryId: "pasta",
+    name: "Tortellini Tonno",
+    description:
+      "Gefüllte Tortellini mit Thunfisch in Schinken-Sahne-Sauce, dazu Pizzabrötchen.",
+    price: 10.5,
+  },
+  {
+    id: "132",
+    categoryId: "pasta",
+    name: "Tortellini",
+    description:
+      "Gefüllte Tortellini in cremiger Schinken-Sahne-Sauce mit Pizzabrötchen.",
+    price: 9.0,
+  },
+  {
+    id: "133",
+    categoryId: "pasta",
+    name: "Lasagne",
+    description:
+      "Überbackene Lasagne mit Rinder-Bolognese-Sauce, serviert mit Pizzabrötchen.",
+    price: 9.0,
+  },
+  {
+    id: "134",
+    categoryId: "pasta",
+    name: "Rigatoni Pollo",
+    description:
+      "Rigatoni mit Hähnchenstreifen, Brokkoli und Paprika in cremiger Sahnesauce, dazu Pizzabrötchen.",
+    price: 10.5,
+  },
+  {
+    id: "135",
+    categoryId: "pasta",
+    name: "Rigatoni Arrabiata",
+    description:
+      "Rigatoni in scharfer Tomatensauce, serviert mit Pizzabrötchen.",
+    price: 9.0,
+    spicy: true,
+  },
+  {
+    id: "136",
+    categoryId: "pasta",
+    name: "Rigatoni Kebap",
+    description:
+      "Rigatoni mit Kebapfleisch, Zwiebeln und frischen Pilzen in Sahnesauce, dazu Pizzabrötchen.",
+    price: 10.5,
+  },
+];
+
 const auflaufItems: OrderItem[] = [
   {
     id: "67",
