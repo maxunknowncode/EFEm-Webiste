@@ -895,6 +895,92 @@ const auflaufItems: OrderItem[] = [
   },
 ];
 
+const salatItems: OrderItem[] = [
+  {
+    id: "145",
+    categoryId: "salat",
+    name: "Chefsalat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken, Thunfisch, Hirtenkäse und Ei.",
+    price: 8.5,
+  },
+  {
+    id: "146",
+    categoryId: "salat",
+    name: "Gemischter Salat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken und Zwiebeln.",
+    price: 7.0,
+    vegetarian: true,
+  },
+  {
+    id: "147",
+    categoryId: "salat",
+    name: "Thunfisch Salat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken und Thunfisch.",
+    price: 7.5,
+  },
+  {
+    id: "148",
+    categoryId: "salat",
+    name: "Cobansalat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken, Hirtenkäse, Peperoni und Zwiebeln.",
+    price: 8.0,
+    vegetarian: true,
+  },
+  {
+    id: "149",
+    categoryId: "salat",
+    name: "Hähnchensalat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken, Hähnchenfleisch, Zwiebeln und Käse.",
+    price: 9.5,
+  },
+  {
+    id: "150",
+    categoryId: "salat",
+    name: "Spezialsalat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken, Paprika, Mais, Thunfisch, Schinken, Ei und Käse.",
+    price: 9.5,
+  },
+  {
+    id: "151",
+    categoryId: "salat",
+    name: "Hirtensalat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken, Hirtenkäse und Oliven.",
+    price: 8.0,
+    vegetarian: true,
+  },
+  {
+    id: "152",
+    categoryId: "salat",
+    name: "Thunfisch Spezialsalat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken, Thunfisch, Oliven, Peperoni und Zwiebeln.",
+    price: 9.5,
+  },
+  {
+    id: "153",
+    categoryId: "salat",
+    name: "Kebap Salat",
+    description:
+      "Eisbergsalat mit Tomaten, Gurken, Kebapfleisch, Zwiebeln und Käse.",
+    price: 9.5,
+  },
+  {
+    id: "154",
+    categoryId: "salat",
+    name: "Turkey Salat",
+    description:
+      "Eisbergsalat mit Hähnchenbruststreifen, Tomaten, Gurken, Mais, Paprika und Zwiebeln.",
+    price: 10.0,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -923,14 +1009,7 @@ export const menuData: MenuData = {
     ...taschenpizzaItems,
     ...fingerFoodMenueItems,
     ...auflaufItems,
-    {
-      id: "salat-griechisch",
-      name: "Griechischer Salat",
-      description: "Frische Gurken, Tomaten, Oliven und Feta mit Kräuterdressing.",
-      price: 7.2,
-      categoryId: "salat",
-      vegetarian: true,
-    },
+    ...salatItems,
     {
       id: "cola-05",
       name: "Coca-Cola 0,5l",
