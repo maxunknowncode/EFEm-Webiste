@@ -1018,6 +1018,74 @@ const snacksItems: OrderItem[] = [
   },
 ];
 
+const dipsItems: OrderItem[] = [
+  {
+    id: "dip-tzatziki",
+    categoryId: "dips",
+    name: "Tzatziki",
+    description: "Hausgemachter Tzatziki-Dip.",
+    price: 2.0,
+    vegetarian: true,
+  },
+  {
+    id: "dip-kraeuterbutter",
+    categoryId: "dips",
+    name: "Kräuterbutter",
+    description: "Aromatische Kräuterbutter.",
+    price: 2.0,
+    vegetarian: true,
+  },
+  {
+    id: "dip-knoblauch",
+    categoryId: "dips",
+    name: "Knoblauch",
+    description: "Cremiger Knoblauch-Dip.",
+    price: 2.0,
+    vegetarian: true,
+  },
+  {
+    id: "dip-cocktailsauce",
+    categoryId: "dips",
+    name: "Cocktailsauce",
+    description: "Klassische Cocktailsauce.",
+    price: 2.0,
+    vegetarian: true,
+  },
+  {
+    id: "dip-joppiesauce",
+    categoryId: "dips",
+    name: "Joppiesauce",
+    description: "Würzige Joppiesauce.",
+    price: 2.0,
+    vegetarian: true,
+  },
+  {
+    id: "dip-ezme",
+    categoryId: "dips",
+    name: "Ezme",
+    description: "Pikante türkische Ezme.",
+    price: 2.0,
+    vegetarian: true,
+  },
+  {
+    id: "dip-french",
+    categoryId: "dips",
+    name: "French",
+    description: "Cremiger French-Dip.",
+    price: 2.0,
+    vegetarian: true,
+  },
+  {
+    id: "dip-chili-cheese",
+    categoryId: "dips",
+    name: "Chili-Cheese-Sauce",
+    description: "Scharfe Chili-Käse-Sauce.",
+    price: 2.5,
+    vegetarian: true,
+    spicy: true,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -1045,9 +1113,12 @@ export const menuData: MenuData = {
     ...vegetarischePizzaItems,
     ...taschenpizzaItems,
     ...fingerFoodMenueItems,
+    ...fingerfoodItems,
+    ...pastaItems,
     ...auflaufItems,
     ...salatItems,
     ...snacksItems,
+    ...dipsItems,
     {
       id: "cola-05",
       name: "Coca-Cola 0,5l",
