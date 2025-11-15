@@ -788,6 +788,77 @@ const taschenpizzaItems: OrderItem[] = [
   },
 ];
 
+const fingerFoodMenueItems: OrderItem[] = [
+  {
+    id: "110",
+    categoryId: "finger-food-menue",
+    name: "Mozzarella Sticks Menü",
+    description:
+      "Mozzarella Sticks mit Pommes, Beilagensalat und zwei Dips nach Wahl.",
+    price: 8.0,
+    vegetarian: true,
+  },
+  {
+    id: "120",
+    categoryId: "finger-food-menue",
+    name: "Chilli Cheese Nuggets Menü",
+    description:
+      "Chili-Cheese-Nuggets mit Pommes, Beilagensalat und zwei Dips nach Wahl.",
+    price: 8.0,
+    spicy: true,
+  },
+  {
+    id: "121",
+    categoryId: "finger-food-menue",
+    name: "Hähnchenbrust-Streifen Menü",
+    description:
+      "Knusprige Hähnchenbruststreifen mit Pommes, Beilagensalat und zwei Dips nach Wahl.",
+    price: 8.0,
+  },
+  {
+    id: "122",
+    categoryId: "finger-food-menue",
+    name: "Onion Rings Menü",
+    description:
+      "Zwiebelringe im Backteig mit Pommes, Beilagensalat und zwei Dips nach Wahl.",
+    price: 8.0,
+    vegetarian: true,
+  },
+  {
+    id: "123",
+    categoryId: "finger-food-menue",
+    name: "Falafel Menü",
+    description:
+      "Falafel mit Pommes, Beilagensalat und zwei Dips nach Wahl.",
+    price: 8.0,
+    vegetarian: true,
+  },
+  {
+    id: "124",
+    categoryId: "finger-food-menue",
+    name: "Finger Mix",
+    description:
+      "Gemischtes Fingerfood mit Pommes, Beilagensalat und drei Dips nach Wahl.",
+    price: 10.0,
+  },
+  {
+    id: "125",
+    categoryId: "finger-food-menue",
+    name: "Kiddy Box",
+    description:
+      "Drei Chicken Nuggets mit Pommes, einem Fruchtgetränk, Spielzeug, Luftballon und Lutscher.",
+    price: 7.0,
+  },
+  {
+    id: "109",
+    categoryId: "finger-food-menue",
+    name: "Buffalo Wings Menü (6 Stück)",
+    description:
+      "Buffalo Wings mit Pommes, Beilagensalat und zwei Dips nach Wahl.",
+    price: 9.0,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -814,6 +885,7 @@ export const menuData: MenuData = {
     ...pizzaItems,
     ...vegetarischePizzaItems,
     ...taschenpizzaItems,
+    ...fingerFoodMenueItems,
     {
       id: "salat-griechisch",
       name: "Griechischer Salat",
