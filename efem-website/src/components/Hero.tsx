@@ -14,16 +14,16 @@ const Hero = () => {
           <p className="max-w-xl text-lg text-slate-600">
             Frische Pizza, saftiger Döner und mehr – einfach online bestellen.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
               href="/bestellen"
-              className="flex items-center justify-center rounded-full bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-rose-600 hover:shadow-lg"
+              className="flex w-full items-center justify-center rounded-full bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-rose-600 hover:shadow-lg sm:w-auto"
             >
               Jetzt bestellen
             </Link>
             <Link
               href="/speisekarte"
-              className="flex items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-rose-400 hover:text-rose-500"
+              className="flex w-full items-center justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-rose-400 hover:text-rose-500 sm:w-auto"
             >
               Speisekarte ansehen
             </Link>
