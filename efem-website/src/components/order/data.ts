@@ -981,6 +981,43 @@ const salatItems: OrderItem[] = [
   },
 ];
 
+const snacksItems: OrderItem[] = [
+  {
+    id: "160",
+    categoryId: "snacks",
+    name: "Brot",
+    description: "Fladenbrot, wahlweise in den Größen Klein, Mittel oder Groß.",
+    price: 1.5,
+    vegetarian: true,
+  },
+  {
+    id: "161",
+    categoryId: "snacks",
+    name: "Käsebrot",
+    description:
+      "Fladenbrot mit Käse überbacken, wahlweise Klein, Mittel oder Groß.",
+    price: 3.0,
+    vegetarian: true,
+  },
+  {
+    id: "162",
+    categoryId: "snacks",
+    name: "Pizzabrötchen (Klein) (6 Stück)",
+    description: "Sechs kleine ofenfrische Pizzabrötchen.",
+    price: 3.0,
+    vegetarian: true,
+  },
+  {
+    id: "163",
+    categoryId: "snacks",
+    name: "Pommes frites",
+    description:
+      "Pommes frites mit Mayo oder Ketchup, in Klein oder Groß erhältlich.",
+    price: 3.0,
+    vegetarian: true,
+  },
+];
+
 export const menuData: MenuData = {
   categories: [
     { id: "kebap", name: "Kebap", order: 10 },
@@ -1010,6 +1047,7 @@ export const menuData: MenuData = {
     ...fingerFoodMenueItems,
     ...auflaufItems,
     ...salatItems,
+    ...snacksItems,
     {
       id: "cola-05",
       name: "Coca-Cola 0,5l",
