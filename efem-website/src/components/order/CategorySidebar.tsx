@@ -19,7 +19,7 @@ export function CategorySidebar({
 
   return (
     <div className="space-y-4">
-      <div className="lg:hidden">
+      <div className="md:hidden">
         <div className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {categories.map((category) => {
             const isActive = category.id === activeCategoryId;
@@ -40,7 +40,7 @@ export function CategorySidebar({
           })}
         </div>
       </div>
-      <nav className="hidden lg:block">
+      <nav className="hidden md:block">
         <ul className="space-y-2">
           {categories.map((category) => {
             const isActive = category.id === activeCategoryId;

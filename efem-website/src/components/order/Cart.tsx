@@ -4,11 +4,17 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
 } from "react";
 import type { CartItem, OrderItem } from "./data";
+
+const currencyFormatter = new Intl.NumberFormat("de-DE", {
+  style: "currency",
+  currency: "EUR",
+});
 
 type CartContextValue = {
   cartItems: CartItem[];
@@ -18,12 +24,17 @@ type CartContextValue = {
   removeItem: (itemId: string) => void;
   clearCart: () => void;
   total: number;
+  itemCount: number;
+  lastAddedItemName: string | null;
 };
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [lastAddedItemName, setLastAddedItemName] = useState<string | null>(
+    null
+  );
 
   const addItem = useCallback((item: OrderItem) => {
     setCartItems((current) => {
@@ -37,6 +48,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...current, { item, quantity: 1 }];
     });
+    setLastAddedItemName(item.name);
   }, []);
 
   const increaseQuantity = useCallback((itemId: string) => {
@@ -80,6 +92,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [cartItems]
   );
 
+  const itemCount = useMemo(
+    () => cartItems.reduce((sum, cartItem) => sum + cartItem.quantity, 0),
+    [cartItems]
+  );
+
+  useEffect(() => {
+    if (!lastAddedItemName) {
+      return;
+    }
+    const timeout = window.setTimeout(() => setLastAddedItemName(null), 1600);
+    return () => window.clearTimeout(timeout);
+  }, [lastAddedItemName]);
+
   const value = useMemo(
     () => ({
       cartItems,
@@ -89,8 +114,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
       removeItem,
       clearCart,
       total,
+      itemCount,
+      lastAddedItemName,
     }),
-    [addItem, cartItems, clearCart, decreaseQuantity, increaseQuantity, removeItem, total]
+    [
+      addItem,
+      cartItems,
+      clearCart,
+      decreaseQuantity,
+      increaseQuantity,
+      itemCount,
+      lastAddedItemName,
+      removeItem,
+      total,
+    ]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
@@ -114,7 +151,7 @@ export function Cart() {
   } = useCart();
 
   return (
-    <div className="bg-white shadow-sm rounded-3xl p-6 space-y-6 sticky top-6">
+    <div className="space-y-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 md:sticky md:top-24">
       <div className="space-y-1">
         <h2 className="text-2xl font-semibold text-slate-900">Dein Warenkorb</h2>
         <p className="text-sm text-slate-500">
@@ -137,7 +174,7 @@ export function Cart() {
                   {cartItem.item.name}
                 </p>
                 <p className="text-xs text-slate-500">
-                  {cartItem.item.price.toFixed(2)} € / Stück
+                  {currencyFormatter.format(cartItem.item.price)} / Stück
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -164,7 +201,9 @@ export function Cart() {
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-semibold text-slate-900">
-                    {(cartItem.item.price * cartItem.quantity).toFixed(2)} €
+                    {currencyFormatter.format(
+                      cartItem.item.price * cartItem.quantity
+                    )}
                   </p>
                   <button
                     type="button"
@@ -182,7 +221,7 @@ export function Cart() {
       <div className="space-y-4">
         <div className="flex items-center justify-between text-sm font-semibold text-slate-900">
           <span>Gesamt</span>
-          <span>{total.toFixed(2)} €</span>
+          <span>{currencyFormatter.format(total)}</span>
         </div>
         <div className="flex justify-center">
           <button
